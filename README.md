@@ -156,7 +156,7 @@ function update(){
     if(ball.x>canvas.width){
         playerScore++;
         resetBall();
-    }ˇ
+    }
 
     scoreText.innerHTML = playerScore + " : " + cpuScore;
 }
