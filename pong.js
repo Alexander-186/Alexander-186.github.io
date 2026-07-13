@@ -116,7 +116,16 @@ function update() {
   context.font = "45px sans-serif";
   context.fillText(player1Score, boardWidth/5, 45)
   context.fillText(player2Score, boardWidth*4/5 -45, 45);
+
+  // draw dotted line down the middle
+  for (let i = 10; i < board.height; i += 25) {
+    //i = starting y position, draw a square every 25 pixels down
+    // (x position = half of boardWidth -10), i = y position, width = 5, height = 5. 
+    context.fillRect(board.width/2 - 10, i, 5, 5);
+  }
 }
+
+
 
 function outOfBounds(yPosition) {
   return (yPosition < 0 || yPosition + playerHeight > boardHeight);
