@@ -83,6 +83,19 @@ function update() {
   // if ball touches top or bottom of canvas
   if (ball.y <= 0 || (ball.y + ball.height >= boardHeight)){
     ball.velocityY *= -1; //reverse direction
+  }
+
+  //bounce the ball back
+  if (detectCollision(ball, player1)) {
+    if (ball.x <= player1.width) {
+      //left side of ball touches right side of player1
+      ball.velocityX *= -1; //flip x direction
+    }
+  }
+  else if (detectCollision(ball, player2)) {
+    if (ball.x + ballWidth >= player2.x) {
+      //right side of ball touches left side of player 2
+      ball.velocityX *= -1; //flip x direction
 
 }
 
