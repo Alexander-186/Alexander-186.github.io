@@ -20,7 +20,7 @@ let player1 = {
 
 let player2 = {
   x : boardWidth - playerWidth - 10,
-  y : boardHeight/2,
+  y : boardHeight/2 - playerHeight/2,
   width : playerWidth,
   height : playerHeight,
   velocityY : playerVelocityY
@@ -77,8 +77,8 @@ function update() {
   let nextPlayer1Y = player1.y + player1.velocityY;
   if (!outOfBounds(nextPlayer1Y)) {
     player1.y = nextPlayer1Y;
-    context.fillRect(player1.x, player1.y, player1.width, player1.height);
   }
+  context.fillRect(player1.x, player1.y, player1.width, player1.height);
 
 
   //player 2
