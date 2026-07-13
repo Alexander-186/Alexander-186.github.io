@@ -35,7 +35,7 @@ let ball = {
   width : ballWidth,
   height : ballHeight,
   velocityX : 1,
-  velocity Y : 2
+  velocityY : 2
 }
 
 window.onload = function() {
