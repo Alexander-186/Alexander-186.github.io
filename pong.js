@@ -82,7 +82,7 @@ function update() {
 
 
   //player 2
-  player2.y += player2.velocityY;
+  // player2.y += player2.velocityY;
   let nextPlayer2Y = player2.y + player2.velocityY;
   if (!outOfBounds(nextPlayer2Y)) {
     player2.y = nextPlayer2Y;
