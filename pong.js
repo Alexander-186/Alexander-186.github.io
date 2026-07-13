@@ -12,7 +12,7 @@ let playerVelocityY = 0;
 
 let player1 = {
   x : 10,
-  y : boardHeight/2,
+  y : boardHeight/2 - playerHeight/2,
   width : playerWidth,
   height : playerHeight,
   velocityY : playerVelocityY
@@ -28,7 +28,7 @@ let player2 = {
 
 //ball
 let ballWidth = 10;
-letballHeight = 10;
+let ballHeight = 10;
 let ball = {
   x : boardWidth/2,
   y : boardHeight/2,
@@ -53,7 +53,19 @@ window.onload = function() {
 
   requestAnimationFrame(update); 
   document.addEventListener("keydown", movePlayer);
+  document.addEventListener("keyup", stopPlayer);
 }
+
+function stopPlayer(e) {
+    if (e.code == "KeyW" || e.code == "KeyS") {
+        player1.velocityY = 0;
+    }
+
+    if (e.code == "ArrowUp" || e.code == "ArrowDown") {
+        player2.velocityY = 0;
+    }
+}
+
 
 function update() {
   requestAnimationFrame(update);
@@ -65,8 +77,9 @@ function update() {
   let nextPlayer1Y = player1.y + player1.velocityY;
   if (!outOfBounds(nextPlayer1Y)) {
     player1.y = nextPlayer1Y;
+    context.fillRect(player1.x, player1.y, player1.width, player1.height);
   }
-  context.fillRect(player1.x, player1.y, player1.width, player1.height);
+
 
   //player 2
   player2.y += player2.velocityY;
@@ -81,7 +94,7 @@ function update() {
   context.fillStyle = "white";
   ball.x += ball.velocityX;
   ball.y += ball.velocityY;
-  context.fillRect(ball.X, ball.y, ball.width, ball.height);
+  context.fillRect(ball.x, ball.y, ball.width, ball.height);
   
   // if ball touches top or bottom of canvas
   if (ball.y <= 0 || (ball.y + ball.height >= boardHeight)){
@@ -147,6 +160,7 @@ function movePlayer(e) {
   else if (e.code == "ArrowDown") {
     player2.velocityY = 3;
   }
+}
 
 function detectCollision(a, b) {
   return a.x < b.x + b.width && //a's top left corner doesn't reach b's top right corner
