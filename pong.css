@@ -1,4 +1,7 @@
-body {
-  text-align: center;
-  background-color: black;
+body { 
+  text-align: center; 
+} 
+
+#board { 
+  background-color: black; 
 }
