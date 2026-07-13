@@ -15,10 +15,14 @@ let player1 = {
   height : playerHeight
 }
 
-
 window.onload = function() {
   board = document.getElementById("board");
   board.height =  boardHeight;
   board.width = boardWidth;
   context = board.getContext("2d}); //used for drawing on the board
+  
+  //draw initial player1 
+  context.fillStyle = "skyblue";
+  context.fillRect(player1.x, player1.y, player1.width, player1.height);
+                             
 }
