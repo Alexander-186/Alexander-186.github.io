@@ -42,6 +42,7 @@ window.onload = function() {
 
 function update() {
   requestAnimationFrame(update);
+  context.clearRect(0, 0, board.width, board.height);
 
   //player 1
   context.fillStyle = "skyblue";
